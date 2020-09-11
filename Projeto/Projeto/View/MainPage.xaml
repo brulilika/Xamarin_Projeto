@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.MainPage"
+             Title="Calculadora">
+
+    <Grid BackgroundColor="#C2F5BC" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/> <!--Image-->
+            <RowDefinition Height="*"/> <!--Entrada de Valores-->
+            <RowDefinition Height="6*"/> <!--Regiao de Botao-->
+            <RowDefinition Height="Auto"/> <!--Regiao de Igual-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Text="ZERAR"  BackgroundColor="#82BAFA" CornerRadius="10" Command="{Binding ZeraCommand}"/>
+            <Image Grid.Row="0" Grid.Column="1" Source="calc_icon.png" Margin="5"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="LIMPAR"  BackgroundColor="#82BAFA" CornerRadius="10" Command="{Binding LimpaCommand}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Result}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Op}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"/>
+            <Entry Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="End" Placeholder="-" PlaceholderColor="Black" Text="{Binding Texto}" Keyboard="Numeric"/>
+        </Grid>
+        
+        
+        
+        <Grid Grid.Row="2" Grid.Column="0"><!--Regiao de Botao -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/> <!--0 7/8/9-->
+                    <RowDefinition Height="*"/> <!--1 4/5/6-->
+                    <RowDefinition Height="*"/> <!--2 1/2/3-->
+                    <RowDefinition Height="*"/> <!--3 0/,/+-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Button Text="7" Command="{Binding SeteCommand}" Grid.Row="0" Grid.Column="0" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="8" Command="{Binding OitoCommand}" Grid.Row="0" Grid.Column="1" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="9" Command="{Binding NoveCommand}" Grid.Row="0" Grid.Column="2" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="*" Command="{Binding MultiCommand}" Grid.Row="0" Grid.Column="3" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+
+            <Button Text="4" Command="{Binding QuatroCommand}" Grid.Row="1" Grid.Column="0" CornerRadius="15" Margin="10" FontSize="Title"  BackgroundColor="#82BAFA"/>
+            <Button Text="5" Command="{Binding CincoCommand}" Grid.Row="1" Grid.Column="1" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="6" Command="{Binding SeisCommand}" Grid.Row="1" Grid.Column="2" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="/" Command="{Binding DivCommand}" Grid.Row="1" Grid.Column="3" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+
+            <Button Text="1" Command="{Binding UmCommand}" Grid.Row="2" Grid.Column="0" CornerRadius="15" Margin="10" FontSize="Title"  BackgroundColor="#82BAFA"/>
+            <Button Text="2" Command="{Binding DoisCommand}" Grid.Row="2" Grid.Column="1" CornerRadius="15" Margin="10" FontSize="Title"  BackgroundColor="#82BAFA"/>
+            <Button Text="3" Command="{Binding TresCommand}" Grid.Row="2" Grid.Column="2" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="-" Command="{Binding MinCommand}" Grid.Row="2" Grid.Column="3" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+
+            <Button Text="0" Command="{Binding ZeroCommand}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="." Command="{Binding ComCommand}" Grid.Row="3" Grid.Column="2" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+            <Button Text="+" Command="{Binding PlusCommand}" Grid.Row="3" Grid.Column="3" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+        </Grid>
+        <Button Text="RESULTADO FINAL" Command="{Binding EqualCommand}" Grid.Row="3" Grid.Column="0" CornerRadius="15" Margin="10" FontSize="Title" BackgroundColor="#82BAFA"/>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.View.ListaRegistrosPage"
+             xmlns:view="clr-namespace:Projeto.View.Template;assembly=Projeto">
+
+    <Grid BackgroundColor="#C2F5BC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Título" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Padding="10"/>
+        <Label Text="Descricao" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Padding="10"/>
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+            ItemsSource="{Binding ListaRegistros}"
+                    ItemSelected="SelectedRegistro" 
+                    CachingStrategy="RecycleElement" HasUnevenRows="True"
+                    SeparatorColor="WhiteSmoke">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <view:ListaRegistroAnimalTemplate/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+    
+    
+
+</ContentPage>

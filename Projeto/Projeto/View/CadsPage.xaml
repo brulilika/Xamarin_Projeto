@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.View.CadsPage"
+             Title="Cadastrar">
+
+    <Grid BackgroundColor="#C2F5BC" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/> <!--Imagem-->
+            <RowDefinition Height="*"/> <!--Campos de Cadastro-->
+            <RowDefinition Height="Auto"/> <!--Area de Botoes-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0"> <!--Centralizar imagem-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="1" Source="animal_icon.png" Margin="5"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Padding="10"> <!--Campos de Cadastro-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/> <!--Nome-->
+                <RowDefinition Height="*"/> <!--Data de Nascimento-->
+                <RowDefinition Height="*"/> <!--Cidade-->
+                <RowDefinition Height="*"/> <!--Especie-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="Nome" Grid.Row="0" Grid.Column="0" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Entry Grid.Row="0" Grid.Column="1" Placeholder="NOME" VerticalOptions="Center" Text="{Binding Nome}"/>
+
+            <Label Text="Data de Nascimento:" Grid.Row="1" Grid.Column="0" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <DatePicker Format="dd/MM/yyyy" Grid.Row="1" Grid.Column="1" MinimumDate="01/01/2000" MaximumDate="{Binding DataLimite}" Date="{Binding DataNascimento }" VerticalOptions="Center" />
+
+            <Label Text="Cidade" Grid.Row="2" Grid.Column="0" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Picker Grid.Row="2" Grid.Column="1"
+                    Title="Selecione a cidade"
+                    ItemsSource="{Binding ListaCidades}" SelectedIndex="{Binding IndexCidadeSelecionada}" VerticalOptions="Center" />
+            
+            <Label Text="Especie:" Grid.Row="3" Grid.Column="0" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large"/>
+            <Picker  Grid.Row="3" Grid.Column="1" VerticalOptions="Center" SelectedIndex="{Binding AnimalSelecionado}" Title="Selecione a espécie">
+                <Picker.Items> <!--Lista de animais inserido manualmente-->
+                    <x:String>Cachorro</x:String>
+                    <x:String>Gato</x:String>
+                    <x:String>Coelho</x:String>
+                    <x:String>Hamster</x:String>
+                    <x:String>Peixe</x:String>
+                    <x:String>Polvo</x:String>
+                    <x:String>Serpente</x:String>
+                    <x:String>Tartaruga</x:String>
+                </Picker.Items>
+            </Picker>
+            
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0" Padding="10"> <!--Campo de Botoes-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text = "Cancelar" Grid.Row="1" Grid.Column="0" Command="{Binding CancelarCommand}" BackgroundColor="#82BAFA" Margin="5" CornerRadius="10"/>
+                <Button Text ="Cadastrar" Grid.Row="1" Grid.Column="1" Command="{Binding AcaoCommand}" BackgroundColor="#82BAFA" Margin="5" CornerRadius="10"/>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</ContentPage>

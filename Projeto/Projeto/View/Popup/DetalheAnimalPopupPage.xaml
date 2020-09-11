@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.View.Popup.DetalheAnimalPopupPage">
+    <StackLayout Margin="12"
+                Padding="24"
+                BackgroundColor="#82BAFA"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center">
+
+        <Label  FontSize="Large" FontAttributes="Bold" TextColor="Black" Text="{Binding Nome}" Padding ="5" HorizontalTextAlignment="Start" />
+        <Label  FontSize="Medium" TextColor="White" Text="{Binding Cidade}" Padding ="5" HorizontalTextAlignment="Start" />
+        <Label  FontSize="Medium" TextColor="White" Text="{Binding Especie}" Padding ="5" HorizontalTextAlignment="Start" />
+        <Button FontSize="Small"  TextColor="Black" BackgroundColor="#C2F5BC" FontAttributes="Bold" VerticalOptions="FillAndExpand" Text="Fechar" Command="{Binding FecharCommand}"/>
+
+    </StackLayout>
+</pages:PopupPage>

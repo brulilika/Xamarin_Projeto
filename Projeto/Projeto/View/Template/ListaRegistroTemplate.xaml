@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.View.Template.ListaRegistroTemplate">
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="{Binding Animal_id}" Grid.Row="0" Grid.Column="0" FontSize="Medium" HorizontalOptions="Start"/>
+        <Label Text="{Binding Titulo}" Grid.Row="0" Grid.Column="1" FontSize="Medium" HorizontalOptions="Center"/>
+    </Grid>
+</ContentView>

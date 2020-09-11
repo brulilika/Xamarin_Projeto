@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.View.DirectPage"
+             Title="Projeto">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Calculadora" Command="{Binding CalcCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid BackgroundColor="#C2F5BC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Text="Sistema" Grid.Row="0" Grid.Column="0" BackgroundColor="#82BAFA" Command="{Binding SistCommand}" Margin="5"/>
+    </Grid>
+</ContentPage>

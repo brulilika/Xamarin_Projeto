@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Projeto.View.AnimalTabbedPage"
+            Title="Sistema Animais"
+            xmlns:view="clr-namespace:Projeto.View.Template;assembly=Projeto">
+    
+    <TabbedPage.Children>
+        <ContentPage Title="Animal" BackgroundColor="#C2F5BC" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="ID ANIMAL" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Padding="10"/>
+                <Label Text="DESCRICAO" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Padding="10"/>
+                <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding ListaAnimais}"
+                    ItemSelected="SelectedAnimal"
+                    CachingStrategy="RecycleElement" HasUnevenRows="True"
+                    SeparatorColor="WhiteSmoke">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <view:ListaAnimalTemplate/>
+                             </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#82BAFA" CornerRadius="10" Margin="5" Text="ADICIONAR NOVO ANIMAL!" Command="{Binding CadsCommand}"/>
+            </Grid>
+        </ContentPage>
+        <ContentPage Title="Registro" BackgroundColor="#C2F5BC">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="ID ANIMAL" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Padding="10"/>
+                <Label Text="DESCRICAO" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Padding="10"/>
+                <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding ListaRegistros}"
+                     ItemSelected="SelectedRegistro" 
+                    CachingStrategy="RecycleElement" HasUnevenRows="True"
+                    SeparatorColor="WhiteSmoke">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <view:ListaRegistroTemplate/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ContentPage>
+        <ContentPage Title="Imagens" BackgroundColor="#C2F5BC">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="FOTOS DE PETS REGISTRADOS" TextColor="#9579DB" FontSize="Large" VerticalOptions="Center" 
+                       HorizontalOptions="Center" FontAttributes="Bold" Padding="5" Margin="10"/>
+                <CarouselView 
+                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                    ItemsSource="{Binding ListaImagens}" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand" 
+                    Margin="10"
+                    PeekAreaInsets="100"
+                    Position="{Binding Posicionamento}" HorizontalScrollBarVisibility="Always" IsScrollAnimated="True" >
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#d2bcf5" CornerRadius="3" HasShadow="False" BackgroundColor="#d2bcf5">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="{Binding Path}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </Grid>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

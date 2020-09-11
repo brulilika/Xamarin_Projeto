@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projeto.View.AnimalPage"
+             Title="Animal">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="edit_icon.png" Priority = "1" Order = "Primary" Command="{Binding AbrirRegistroCommand}"/>
+    </ContentPage.ToolbarItems>
+    <Grid BackgroundColor="#C2F5BC" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/> <!--Imagem do Animal em questao-->
+            <RowDefinition Height="*"/> <!--Resultados-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Grid.Column="1" Source="{Binding ImagemAnimal}" HeightRequest="300" WidthRequest="64" Margin="5"/>
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <!--Nome-0-->
+                <RowDefinition Height="*"/>
+                <!--Idade-1-->
+                <RowDefinition Height="*"/>
+                <!--Cidade-2-->
+                <RowDefinition Height="*"/>
+                <!--Especie-3-->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <!--Labels-->
+                <ColumnDefinition Width="*"/>
+                <!--Tipos-0-->
+                <ColumnDefinition Width="*"/>
+                <!--Resultados-1-->
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Nome:" FontSize="Large"/>
+            <Entry Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding Escolhido.Nome}" FontSize="Large" IsEnabled="{Binding VisibilidadeEditar}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Idade (padrão humano)" FontSize="Large"/>
+            <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="{Binding IdadeEspecie}" FontSize="Large"/>
+
+            <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center"  Text="Cidade" FontSize="Large"/>
+            <Picker Grid.Row="2" Grid.Column="1"
+                    Title="Selecione a cidade"
+                    ItemsSource="{Binding ListaCidades}" SelectedIndex="{Binding IndexCidadeSelecionada}" VerticalOptions="Center" IsEnabled="{Binding VisibilidadeEditar}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Especie:" FontSize="Large"/>
+            <Label Grid.Row="3" Grid.Column="1" VerticalOptions="Center" Text="{Binding Escolhido.Especie}" FontSize="Large"/>
+
+
+            <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Adicionar Registro" CornerRadius="10" Margin="5" BackgroundColor="#82BAFA" Command="{Binding NovoRegistroCommand}" IsEnabled="{Binding VisibilidadeBotao}"/>
+            <Button Text="&#xf030;" FontSize="36"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="10" Margin="5" BackgroundColor="#82BAFA" Command="{Binding NovaFotoCommand}" IsEnabled="{Binding VisibilidadeBotao}" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" 
+                                                       iOS="Font Awesome 5 Free"/>
+                </Button.FontFamily>
+            </Button>
+            <Button Grid.Row="6" Grid.Column="0" Text="DELETAR" CornerRadius="10" Margin="5" BackgroundColor="#82BAFA" Command="{Binding DeleteCommand}" IsEnabled="{Binding VisibilidadeBotao}"/>
+            <Button Grid.Row="6" Grid.Column="1" Text="{Binding Edicao}" CornerRadius="10" Margin="5" BackgroundColor="#82BAFA" Command="{Binding EditarCommand}" />
+        </Grid>
+    </Grid>
+</ContentPage>
